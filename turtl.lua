@@ -23,10 +23,11 @@ while true do
 
     -- Vérifier si message est bien un nombre avant de continuer
     if type(message) == "number" then
+        print("Commande reçue : " .. tostring(message))
         break
     end
 
-    print("Commande reçue : " .. tostring(message))
+    
 end
 
 local size = tonumber( message )
