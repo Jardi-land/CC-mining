@@ -20,10 +20,13 @@ end
 -- Mine in a quarry pattern until we hit something we can't dig
 while true do
     local _, _, _, _, message = os.pullEvent("modem_message")
-    print("Commande reçue : " .. message)
-    if type(message.type) == "number" then
+
+    -- Vérifier si message est bien un nombre avant de continuer
+    if type(message) == "number" then
         break
     end
+
+    print("Commande reçue : " .. tostring(message))
 end
 
 local size = tonumber( message )
