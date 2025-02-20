@@ -19,18 +19,18 @@ end
 
 -- Mine in a quarry pattern until we hit something we can't dig
 while true do
-    local _, _, _, _, message = os.pullEvent("modem_message")
+    local _, _, _, _, msg = os.pullEvent("modem_message")  -- Utiliser une variable temporaire
 
-    -- Vérifier si message est bien un nombre avant de continuer
-    if type(message) == "number" then
-        print("Commande reçue : " .. tostring(message))
+    -- Vérifier si msg est bien un nombre avant de continuer
+    if type(msg) == "number" then
+        print("Commande reçue : " .. tostring(msg))
+        message = msg  -- Assigner msg à message
         break
     end
-
-    
 end
 
 local size = tonumber( message )
+print(size)
 if size < 1 then
 	print( "Excavate diameter must be positive" )
 	return
